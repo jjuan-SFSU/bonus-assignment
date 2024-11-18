@@ -1,7 +1,6 @@
 const express = require('express');
 const db = require('./db'); // Database setup
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 
@@ -67,6 +66,7 @@ app.put('/todos/complete-all', (req, res) => {
     });
 });
 
+// updated delete for SQLite
 app.delete('/todos/:id', (req, res) => {
     const { id } = req.params;
     const sql = 'DELETE FROM todos WHERE id = ?';
@@ -84,7 +84,7 @@ app.delete('/todos/:id', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(3000, () => {
+    console.log(`Server is running on http://localhost:3000`);
 });
 
